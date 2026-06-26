@@ -515,9 +515,14 @@ fun LibraryScreen(
                             LibraryChipType.DOWNLOADED_PLAYLIST -> stringResource(Res.string.downloaded_playlists)
                             LibraryChipType.FAVORITE_PODCAST -> stringResource(Res.string.favorite_podcasts)
                             LibraryChipType.CHART -> stringResource(Res.string.simpmusic_charts)
+                            LibraryChipType.LOCAL_FILES -> "Local Files"
                         },
                 ) {
-                    viewModel.setCurrentScreen(type)
+                    if (type == LibraryChipType.LOCAL_FILES) {
+                        navController.navigate(LocalMusicDestination)  // go to new screen
+                    } else {
+                        viewModel.setCurrentScreen(type)               // existing behaviour, unchanged
+                    }
                 }
             }
         }
