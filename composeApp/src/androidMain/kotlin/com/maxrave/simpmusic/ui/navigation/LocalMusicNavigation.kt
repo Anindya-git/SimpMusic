@@ -6,7 +6,6 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import com.maxrave.simpmusic.ui.navigation.destination.library.LocalMusicDestination
 import com.maxrave.simpmusic.ui.screen.library.LocalMusicScreen
-import com.maxrave.simpmusic.viewModel.SharedViewModel
 
 /**
  * Extension on [NavGraphBuilder] that registers the [LocalMusicScreen] route.
@@ -19,17 +18,15 @@ import com.maxrave.simpmusic.viewModel.SharedViewModel
  *
  *   localMusicRoute(innerPadding, navController, sharedViewModel, onScrolling)
  */
-fun NavGraphBuilder.localMusicRoute(
+actual fun NavGraphBuilder.localMusicRoute(
     innerPadding: PaddingValues,
     navController: NavController,
-    sharedViewModel: SharedViewModel,
     onScrolling: (Boolean) -> Unit,
 ) {
     composable<LocalMusicDestination> {
         LocalMusicScreen(
             innerPadding = innerPadding,
             navController = navController,
-            sharedViewModel = sharedViewModel,
             onScrolling = onScrolling,
         )
     }
