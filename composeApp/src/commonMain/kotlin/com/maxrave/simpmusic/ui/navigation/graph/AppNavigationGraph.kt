@@ -101,5 +101,6 @@ fun AppNavigationGraph(
                 showNavBar(false)
             },
         )
+        localMusicRoute(innerPadding, navController, sharedViewModel, onScrolling)
     }
 }
